@@ -34,7 +34,7 @@ time.sleep(10)
 alpha.firmware = {'major': 18, 'version': 18.2, 'minor': 2}
 
 #Find the appropriate number to assign to the filename
-files = os.listdir('/home/pi/Desktop/SensorData/PMdata')
+files = os.listdir('/home/pi/OpticalParticleCounters/DATA/OPCData')
 number=1
 for i in range(0, len(files)):
     string = files[i] 
@@ -47,7 +47,7 @@ for i in range(0, len(files)):
                 number = index + 1
 
 #Create a .csv file with the appropriate number in its name
-file_name = '/home/pi/Desktop/SensorData/PMdata/OPCdata%s.csv' % (number)
+file_name = '/home/pi/OpticalParticleCounters/DATA/OPCData/OPCdata%s.csv' % (number)
 file_csv = open(file_name,'w')
 csv = csv.writer(file_csv, delimiter=',')
 
@@ -72,7 +72,6 @@ while True:
         csv.writerows([keys])
     csv.writerows([data])
     time.sleep(0.5)
-    
 """
 Other values that can be read from the OPC-N2
 n = alpha.sn() #Serial Number
