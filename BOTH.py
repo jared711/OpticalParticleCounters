@@ -164,6 +164,9 @@ file_csvNOVA.close()
 #Shut down the opc
 alpha.off()
 
+#To do - for some reason, ctrl+c doesn't always shut the OPC off. I think it has to do with the timing.
+#If I'm in the middle of communications, it won't work
+
 """
 Other values that can be read from the OPC-N2
 n = alpha.sn() #Serial Number
