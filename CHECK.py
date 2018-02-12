@@ -46,60 +46,15 @@ alpha.firmware = {'major': 18, 'version': 18.2, 'minor': 2}
 
 ser = serial.Serial('/dev/ttyUSB0', baudrate=9600, stopbits=1, parity="N",  timeout=2)
 
-input("System Ready, press Enter to begin collecting data. Press ctrl+c to pause...")
+input("System Ready, press Enter to begin displaying data. Press ctrl+c to pause...")
 
 ##### STARTING THE DATA COLLECTION LOOP #####
 
 status = "collecting"
 while status == "collecting":
 	
-	##### CREATING THE DATA FILES #####
 	
-	filesNOVA = os.listdir('/home/pi/OpticalParticleCounters/DATA/NovaData')
-	filesOPC = os.listdir('/home/pi/OpticalParticleCounters/DATA/OPCData')
-	
-	numberNOVA=1
-	for i in range(0, len(filesNOVA)):
-	    string = filesNOVA[i] 
-	    string = string[:-4] #eliminate the .csv at the end
-	    index = 0
-	    for letter in string:
-	        if not letter.isalpha():
-	            try:
-	                index = index*10 + int(float(letter)) #make sure the tens and hundreds places are accounted for
-	            except:
-	                print("Error: Please close all open files in the DATA directory and try again")
-	                quit()
-	            if index >= numberNOVA:
-	                numberNOVA = index + 1
-	    
-	file_nameNOVA = '/home/pi/OpticalParticleCounters/DATA/NovaData/NOVAdata%s.csv' % (numberNOVA)
-	file_csvNOVA = open(file_nameNOVA,'w')
-	csvNOVA = csv.writer(file_csvNOVA, delimiter=',')                
-	
-	numberOPC=1
-	for i in range(0, len(filesOPC)):
-	    string = filesOPC[i] 
-	    string = string[:-4] #eliminate the .csv at the end
-	    index = 0
-	    for letter in string:
-	        if not letter.isalpha():
-	            index = index*10 + int(float(letter)) #make sure the tens and hundreds places are accounted for
-	            if index >= numberOPC:
-	                numberOPC = index + 1
-	
-	#Create a .csv file with the appropriate number in its name
-	file_nameOPC = '/home/pi/OpticalParticleCounters/DATA/OPCData/OPCdata%s.csv' % (numberOPC)
-	file_csvOPC = open(file_nameOPC,'w')
-	csvOPC = csv.writer(file_csvOPC, delimiter=',')
-	
-	##### WRITING THE FILES #####
-	
-	#print the file number upon starting the program
-	file_numberOPC = 'OPC file number: %s' % (numberOPC)
-	file_numberNOVA = 'NOVA file number: %s' % (numberNOVA)
-	print(file_numberOPC)
-	print(file_numberNOVA) 
+	##### PRINTING #####
 	
 	PM25 = 0 #initialize PM25 and PM10 for the NOVA sensor
 	PM10 = 0
@@ -108,7 +63,6 @@ while status == "collecting":
 	counter = 0
 	timestart = time.time()
 	timer = 0
-	csvNOVA.writerows([["Counter", "Time", "PM2.5", "PM10"]]) #make sure to use two square brackets when using csv.writerows
 	try:
 	    while True:
 		    counter += 1
@@ -130,9 +84,6 @@ while status == "collecting":
 		        if key == 'PM10':
 		            OPC10=value
 		    print('PM2.5 - ',OPC25, 'PM10 - ', OPC10)#This line prints just PM2.5 and PM10 data
-		    if counter == 1:
-		        csvOPC.writerows([keys])
-		    csvOPC.writerows([data])
 		    time.sleep(0.5)
 		    
 		    ### NOVA ###
@@ -155,7 +106,6 @@ while status == "collecting":
 		            PM25 = float(pm2hb + pm2lb*256)/10.0
 		            PM10 = float(pm10hb + pm10lb*256)/10.0
 		            datarow = [counter,timer,PM25,PM10]
-		            csvNOVA.writerows([datarow])
 		            # we should verify the checksum... it is the sum of bytes 1-6 truncated...
 		            print("NOVA")
 		
@@ -169,14 +119,10 @@ while status == "collecting":
 	except KeyboardInterrupt:
 	    pass
 	
-	#close the file
-	file_csvOPC.close()
-	file_csvNOVA.close()
-	
 	
 
 	
-	choice = input("Files written. To start new files, press 'y' then Enter, to quit, press only Enter")
+	choice = input("Paused... To start again, press 'y' then Enter, to quit, press only Enter")
 	if choice == "y" or choice == "Y":
 		status = "collecting"
 	else:
