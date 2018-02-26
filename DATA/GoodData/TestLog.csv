@@ -19,3 +19,17 @@ Test #,Date,Description,Diffusion Dryer,Particle type,Particle Amount,Water Type
 18,02/22/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal & Big,Floor & Ceiling,Floor Center
 19,02/22/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal & Huge,Floor & Floor,Floor Center
 20,02/22/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal & Huge,Floor & Floor,Floor Center
+21,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal,,Floor Center
+22,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal,,Floor Center
+23,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,None,,Floor Center
+24,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,None,,Floor Center
+25,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,None,,Middle Right
+26,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,None,,Middle Right
+27,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,None,,High Right
+28,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,None,,High Right
+29,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal (H),,High Right
+30,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal (H),,High Right
+31,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal & Big,,High Right
+32,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal & Big,,High Right
+33,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,8 min,22 min,40 PSI,40 PSI,Normal & Huge,,High Right
+34,02/23/18,,Yes,LB5,1uL,De-ionized,5 mL,-,10 min,21 min,40 PSI,40 PSI,Normal & Huge,,High Right
