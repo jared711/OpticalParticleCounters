@@ -84,7 +84,11 @@ while status == "collecting":
 	    index = 0
 	    for letter in string:
 	        if not letter.isalpha():
-	            index = index*10 + int(float(letter)) #make sure the tens and hundreds places are accounted for
+	            try:
+	                index = index*10 + int(float(letter)) #make sure the tens and hundreds places are accounted for
+	            except:
+	                print("Error: Please close all open files in the DATA directory and try again")
+	                quit()
 	            if index >= numberOPC:
 	                numberOPC = index + 1
 	

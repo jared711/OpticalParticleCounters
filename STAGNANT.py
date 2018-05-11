@@ -41,10 +41,14 @@ for i in range(0, len(files)):
     string = string[:-4] #eliminate the .csv at the end
     index = 0
     for letter in string:
-        if not letter.isalpha():
-            index = index*10 + int(float(letter)) #make sure the tens and hundreds places are accounted for
-            if index >= number:
-                number = index + 1
+		if not letter.isalpha():
+			try:
+				index = index*10 + int(float(letter)) #make sure the tens and hundreds places are accounted for
+			except:
+				print("Error: Please close all open files in the DATA directory and try again")
+				quit()
+			if index >= numberOPC:
+				numberOPC = index + 1
 
 #Create a .csv file with the appropriate number in its name
 file_name = '/home/pi/OpticalParticleCounters/DATA/OPCData/OPCdata%s.csv' % (number)
